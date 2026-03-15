@@ -1,0 +1,7 @@
+interface:
+  display_name: "Coder Skills"
+  short_description: "Guided coding practice, hints, reviews, and scoped implementation"
+  default_prompt: "Use $coder-skills to turn my coding task into guided practice, a review, or a direct implementation with C/C++ priority."
+
+policy:
+  allow_implicit_invocation: false
