@@ -30,7 +30,8 @@ Choose exactly one primary mode for each turn. See `references/mode-selection.md
 - Keep guidance concise, technical, and actionable.
 - Inspect repository context before proposing file locations or edits.
 - Preserve existing behavior unless the task explicitly asks for behavior changes.
-- If the current AI CLI tool cannot safely edit files, give exact file and function targets in the response instead of pretending to patch.
+- In Guided Mode, prefer editing real files and inserting inline `TODO`/`HINT` markers directly into the codebase.
+- Only fall back to response-only guidance when the current AI CLI tool truly cannot edit files safely.
 
 ## Guided Mode Workflow
 
@@ -46,8 +47,8 @@ For Guided Mode, respond in this order:
 - Correctness, performance, style, and compatibility constraints.
 
 4. Implementation Scaffold
-- For new projects: provide structure, signatures, and focused `TODO`/`HINT` markers.
-- For existing repos: place `TODO`/`HINT` markers at exact edit points in real files when safe.
+- For new projects: create or edit real scaffold files with focused `TODO`/`HINT` markers.
+- For existing repos: place `TODO`/`HINT` markers at exact edit points in real files by default.
 - Keep scaffolding localized and cap the work to `3-7` coherent tasks.
 
 5. Learner Handoff
@@ -56,10 +57,11 @@ For Guided Mode, respond in this order:
 ## Existing Repository Rules
 
 - Prefer real source files over toy snippets when the repo already contains the relevant code.
+- In Guided Mode, edit the real source file first instead of describing the intended comments in chat.
 - Keep each `TODO` scoped to one coherent decision or implementation unit.
 - Put `HINT` content near the task and keep it high-level: approach, key concepts, and likely pitfalls.
 - Never leak a full end-to-end implementation in Guided Mode or Hint-only Mode.
-- If inline comment markers would be unsafe, use the fallback rules from `references/comment-markers.md`.
+- If inline comment markers would be unsafe, use the fallback rules from `references/comment-markers.md` and state clearly why inline edits were skipped.
 - State the verification strategy before handoff when builds, tests, or static checks matter.
 
 ## Review Mode
@@ -83,6 +85,7 @@ Before finalizing:
 
 - Mode selected correctly
 - Language priority followed
+- Guided Mode edits real files unless tool limitations or file safety rules prevent it
 - Guided or Hint-only output does not leak the final solution
 - Review rubric selected when reviewing code
 - Verification status reported clearly

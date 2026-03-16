@@ -16,6 +16,7 @@ The installable skill lives at `skills/coder-skills`.
 ## What It Does
 
 - Guided Mode for scaffolded practice with `TODO` and `HINT` markers
+- Guided Mode edits real files by default instead of only describing scaffolding in chat
 - Hint-only Mode for minimal nudges without full scaffolding
 - Review Mode with task-aware scoring and learning feedback
 - Planning Mode for decomposition before edits

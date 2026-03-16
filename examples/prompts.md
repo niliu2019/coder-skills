@@ -6,7 +6,8 @@ These examples are repository-agnostic prompt patterns for `coder-skills`.
 
 ```text
 Use $coder-skills to turn this C++ linked-list task into a guided exercise.
-Give me the problem statement, constraints, and focused TODO/HINT markers.
+Edit the real file and insert focused TODO/HINT markers directly into the code.
+Also give me the problem statement and constraints.
 Do not give the full implementation.
 ```
 

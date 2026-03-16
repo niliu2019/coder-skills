@@ -15,8 +15,13 @@ Deliver:
 - Problem statement
 - Input and output expectations
 - Constraints
-- Focused scaffold with `TODO` and `HINT`
+- Real file edits with focused inline `TODO` and `HINT` markers whenever the tool can edit safely
 - Learner handoff
+
+Default behavior:
+
+- Edit the real file instead of only describing scaffold comments in chat.
+- If inline edits are unsafe or impossible, say so explicitly and provide exact file and function anchors as the fallback.
 
 ## Hint-only Mode
 
